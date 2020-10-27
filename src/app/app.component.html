@@ -1,0 +1,38 @@
+<!-- Original Design -->
+<!-- <div *ngIf="display">
+  <h1 class="text-center">{{pollObj.question}}</h1>
+  <table class="table table-hover">
+    <tr>
+      <th>Option</th>
+      <th *ngIf="voteDone">Count</th>
+      <th *ngIf="!voteDone">Vote</th>
+    </tr>
+    <tr *ngFor="let item of pollObj.options">
+      <td>{{item.text}}</td>
+      <td *ngIf="voteDone">{{item.count}}</td>
+      <td *ngIf="!voteDone"><button class="btn btn-info" (click)="vote(item)">Vote</button></td>
+    </tr>
+  </table>
+</div> -->
+<div class="text-center" *ngIf="display">
+  <h4 class="bg-primary text-white" style="padding:8px">{{pollObj.question}}</h4>
+  <form class="form-group">
+    <div class="form-check" *ngFor="let item of pollObj.options">
+      <input class="form-check-input" type="radio" id="option" name="pollOpt" value="item.value" (click)="selectValue(item.value)"> 
+      <label class="form-check-label" for="option">{{item.text}}</label>
+    </div><br>
+    <button class="btn btn-info" (click)="radioVote()">Vote</button>
+  </form>
+</div>
+
+<div *ngIf="voteDone" style="display: block;">
+  <h2 class="text-center">Results</h2>
+  <canvas baseChart 
+    [data]="pieChartData" 
+    [labels]="pieChartLabels" 
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+  </canvas>
+</div>
