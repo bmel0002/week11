@@ -7,7 +7,7 @@ let io = require("socket.io")(server);
 
 let port = 8080;
 
-app.use("/", express.static(path.join(__dirname, "dist/chatApp")));
+app.use("/", express.static(path.join(__dirname, "dist/chatapp")));
 
 let pollObj = require("./models/poll");
 
