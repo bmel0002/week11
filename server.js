@@ -19,6 +19,9 @@ io.on("connection", socket => {
     for(let i = 0; i < pollObj.options.length; i++){
       if(pollObj.options[i].value === data){
         pollObj.options[i].count++;
+        // Bonus Task
+        io.sockets.emit("thx", pollObj.options[i].text);
+        //
       }
     };
     io.sockets.emit("poll", pollObj);

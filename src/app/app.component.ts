@@ -18,6 +18,8 @@ export class AppComponent {
   voteDone: Boolean = false;
   value: number = 0;
 
+  voteThanks: string = "";
+
   // Pie
   public pieChartOptions: ChartOptions = {
     responsive: true,
@@ -49,6 +51,9 @@ export class AppComponent {
         this.pieChartData.push(data.options[i].count);
       }
     });
+    this.socket.on("thx", data => {
+      this.voteThanks = data;
+    })
   }
 
   vote(item) {

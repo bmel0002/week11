@@ -25,6 +25,11 @@
   </form>
 </div>
 
+<!-- BONUS TASK -->
+<div *ngIf="voteThanks.length>0" class="card text-center bg-info text-white">
+  <p>Thanks for casting your vote for {{voteThanks}}!</p>
+</div>
+
 <div *ngIf="voteDone" style="display: block;">
   <h2 class="text-center">Results</h2>
   <canvas baseChart 
